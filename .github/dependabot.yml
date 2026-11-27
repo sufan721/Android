@@ -1,0 +1,44 @@
+version: 2
+updates:
+  # 本地 jar / aar 不属于 Gradle 依赖坐标，Dependabot 无法升级：
+  # Rong_IMLib.jar、alipaySdk-20161129.jar、TencentMapSDK/TencentLocationSDK/TencentSearch、
+  # ShareSDK-* 与 MobTools/MobCommons，需要按官方发布手动替换文件。
+  - package-ecosystem: gradle
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "09:00"
+      timezone: Asia/Shanghai
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+    commit-message:
+      prefix: build
+      include: scope
+    ignore:
+      # 与 compileSdkVersion 25 绑定，升级需同步改 build.gradle 与 buildToolsVersion
+      - dependency-name: "com.android.support:*"
+      - dependency-name: "com.android.tools.build:gradle"
+      # 低版本兼容：升级后需回归 minSdkVersion 16 设备
+      - dependency-name: "com.google.zxing:core"
+        update-types: [ "version-update:semver-major" ]
+    groups:
+      retrofit:
+        patterns:
+          - "com.squareup.retrofit2:*"
+      okhttp:
+        patterns:
+          - "com.squareup.okhttp3:*"
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly
+      timezone: Asia/Shanghai
+    open-pull-requests-limit: 3
+    labels:
+      - dependencies
+      - ci
+    commit-message:
+      prefix: ci
