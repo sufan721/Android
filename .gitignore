@@ -50,3 +50,17 @@ captures/
 # Local scratch folder
 /temp/
 
+# Heap dumps
+*.hprof
+
+# Android Studio 导航与临时文件
+.navigation/
+
+# Signing config
+signing.properties
+release/
+
+# Native build outputs
+obj/
+libs/*/lib/*.so.tmp
+
