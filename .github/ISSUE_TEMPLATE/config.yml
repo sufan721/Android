@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 编译 / 登录 / 地图等问题
+    url: https://github.com/sufan721/Android/blob/main/docs/FAQ.md
+    about: 先看常见问题，再看排障手册 docs/TROUBLESHOOTING.md，多数问题已有答案
+  - name: 依赖与构建链现状
+    url: https://github.com/sufan721/Android/blob/main/docs/ROADMAP.md
+    about: jcenter 下线导致当前无法编译，属已知问题，技术债排期见路线图
+  - name: 报告安全漏洞
+    url: https://github.com/sufan721/Android/security/advisories/new
+    about: 请勿用公开 Issue 报告漏洞，走私密报告通道
